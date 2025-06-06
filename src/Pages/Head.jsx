@@ -34,7 +34,7 @@ NextDo
         )}
         <NavLink to="/">
           <button
-            className="p-2 bg-blue-600 hover:bg-blue-700 text-white px-5 rounded-3xl"
+            className="p-2  bg-[#428eed] hover:bg-blue-700 text-white px-5 rounded-3xl"
             onClick={logout}
           >
             Logout

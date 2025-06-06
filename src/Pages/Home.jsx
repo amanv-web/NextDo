@@ -135,7 +135,7 @@ What’s next? Let’s do
               onKeyDown={enter}
             />
             <button
-              className="p-2 px-5 text-white bg-green-600 hover:bg-green-700 transition rounded-3xl"
+              className="p-2 px-5 text-white bg-[#50eeb2] hover:bg-green-700 transition rounded-3xl"
               onClick={handlerAdd}
             >
               Add

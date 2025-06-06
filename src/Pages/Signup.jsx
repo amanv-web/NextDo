@@ -83,14 +83,14 @@ const navigate = useNavigate();
           </div>
           <button
             type="submit"
-            className="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition"
+            className="w-full bg-[#0ec57f] text-white py-2 rounded-md hover:bg-green-700 transition"
           >
             Create Account
           </button>
         </form>
         <NavLink to="/" >
           <button
-            className="w-full mt-[0.4rem]  bg-blue-600 text-white py-2 rounded-md hover:bg-green-700 transition"
+            className="w-full mt-[0.4rem]  bg-[#3885f1] text-white py-2 rounded-md hover:bg-green-700 transition"
           >
             Already account?
           </button>

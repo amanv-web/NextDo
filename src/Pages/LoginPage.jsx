@@ -76,14 +76,14 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full  bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+            className="w-full  bg-[#3885f1] text-white py-2 rounded-md hover:bg-blue-700 transition"
           >
             Login
           </button>
         </form>
 
         <NavLink to="/Signup">
-          <button className="w-full mt-[0.4rem]  bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">
+          <button className="w-full mt-[0.4rem]  bg-[#0ec57f] text-white py-2 rounded-md hover:bg-green-700 transition">
             Create account
           </button>
         </NavLink>
