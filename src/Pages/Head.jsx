@@ -30,7 +30,7 @@ NextDo
 
       <div className="flex items-center space-x-4">
         {userName && (
-          <h1 className="text-lg font-medium">Welcome, {userName}</h1>
+          <h1 className="lg:text-lg font-medium  wrap-break-word ">Welcome, {userName}</h1>
         )}
         <NavLink to="/">
           <button

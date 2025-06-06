@@ -8,7 +8,7 @@ export default function Signup() {
   const [displayName, setdisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [ setError] = useState("");
+  
   const firebase = useFirebase();
   const handleSubmit =
   async (e) => {
@@ -17,7 +17,7 @@ export default function Signup() {
         console.log("Going")
       const result = await firebase.signupUserWithEmailAndPassword(email, password , displayName);
       console.log("Signup done", result)
-    } catch (error) {
+    } catch {
       alert("email-already-in-use")
       
       
