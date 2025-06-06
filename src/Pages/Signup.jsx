@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router";
 import { useFirebase } from "../firebaseContext"
 import { useNavigate } from "react-router";
+import GradientText from "../GradientText";
+
 export default function Signup() {
   const [displayName, setdisplayName] = useState("");
   const [email, setEmail] = useState("");
@@ -9,12 +11,18 @@ export default function Signup() {
   const [ setError] = useState("");
   const firebase = useFirebase();
   const handleSubmit =
-    async (e) => {
-      e.preventDefault();
-      console.log("Going")
+  async (e) => {
+    e.preventDefault();
+    try {
+        console.log("Going")
       const result = await firebase.signupUserWithEmailAndPassword(email, password , displayName);
       console.log("Signup done", result)
-      setError("");
+    } catch (error) {
+      alert("email-already-in-use")
+      
+      
+    } 
+    
     };
 const navigate = useNavigate();
   useEffect(() => {
@@ -27,7 +35,14 @@ const navigate = useNavigate();
 
    <div className="lg:pt-10  pt-24 items-center justify-center ">
   <div className="max-w-sm mx-auto p-4">
-        <h2 className="text-6xl  mb-4 text-center font-bold drop-shadow">TASKly</h2>
+        <h2 className="text-6xl  mb-4 text-center font-bold drop-shadow"> <GradientText
+               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
+               animationSpeed={1}
+               showBorder={false}
+               className=""
+             >
+        NextDo 
+             </GradientText></h2>
         <h2 className="text-3xl  mb-4 text-center font-bold drop-shadow">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -39,7 +54,7 @@ const navigate = useNavigate();
               onChange={(e) => setdisplayName(e.target.value)}
               placeholder="Enter full name"
               required
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200"
             />
           </div>
 
@@ -51,7 +66,7 @@ const navigate = useNavigate();
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter email"
               required
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200"
             />
           </div>
 
@@ -63,7 +78,7 @@ const navigate = useNavigate();
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter password"
               required
-              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-200"
             />
           </div>
           <button

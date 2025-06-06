@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 const FirebaseContext = createContext(null);
 
+import { getFirestore } from "firebase/firestore";
 export const useFirebase = () => useContext(FirebaseContext);
 
 const firebaseConfig = {
@@ -24,7 +25,8 @@ const firebaseConfig = {
 };
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
-
+const db = getFirestore(firebaseApp);
+export { db }; 
 export const FirebaseProvider = (props) => {
   const googleProvider = new GoogleAuthProvider();
   const signupUserWithEmailAndPassword = (email, password ,displayName) =>
@@ -56,7 +58,8 @@ export const FirebaseProvider = (props) => {
         isLoggedIn,
         logout,
         user,
-        useFirebase
+        useFirebase,
+        
       }}
     >
       {props.children}

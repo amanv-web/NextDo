@@ -1,8 +1,7 @@
 import "./index.css";
 import ReactDOM from "react-dom/client";
 import { FirebaseProvider } from "./firebaseContext.jsx";
-import { Provider } from "react-redux";
-import store from "./redux/store.jsx";
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -27,8 +26,8 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <FirebaseProvider>
-    <Provider store={store}>
+
       <RouterProvider router={router} />
-    </Provider>
+   
   </FirebaseProvider>
 );
