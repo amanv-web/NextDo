@@ -7,7 +7,10 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   onAuthStateChanged,
+    signInAnonymously,
+
   signOut
+  
 } from "firebase/auth";
 const FirebaseContext = createContext(null);
 
@@ -26,6 +29,9 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
+
+ 
+
 export { db }; 
 export const FirebaseProvider = (props) => {
   const googleProvider = new GoogleAuthProvider();
@@ -35,6 +41,13 @@ export const FirebaseProvider = (props) => {
     signInWithEmailAndPassword(firebaseAuth, email, password);
   const signInWithGoogle = () => signInWithPopup(firebaseAuth, googleProvider);
   const logout = () => signOut(firebaseAuth);
+ const guestLogin = async () => {
+    try {
+      await signInAnonymously(firebaseAuth);
+    } catch (error) {
+      console.error("Guest login error:", error.message);
+    }
+  };
 
   const [user, setUser] = useState(null);
   const isLoggedIn = user ? true : false;
@@ -59,7 +72,7 @@ export const FirebaseProvider = (props) => {
         logout,
         user,
         useFirebase,
-        
+        guestLogin
       }}
     >
       {props.children}

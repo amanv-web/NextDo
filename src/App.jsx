@@ -6,7 +6,7 @@ import { useNavigation } from 'react-router-dom';
 
 function App() {
   const navigation = useNavigation();
-  if(navigation.state === "submitting") return <H1>dfjhaksdjfhdasfds</H1> 
+  if(navigation.state === "submitting") return <H1></H1> 
   return (
     <div>
    

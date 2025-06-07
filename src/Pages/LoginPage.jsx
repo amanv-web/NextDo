@@ -10,6 +10,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const firebase = useFirebase();
   console.log(firebase);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -21,7 +22,14 @@ export default function LoginPage() {
       alert("Invalid-credential or User not found");
     }
   };
-
+const guestLogin = async () => {
+  try {
+    await firebase.guestLogin();
+    navigate("/Home");
+  } catch (err) {
+    console.error("Guest Login Failed", err.message);
+  }
+};
   const handlerSignINGoogle = async () => {
     
      await firebase.signInWithGoogle();
@@ -97,6 +105,12 @@ export default function LoginPage() {
         >
          <FcGoogle className=" mr-2 text-xl align-middle " />
  Sign in With Google
+        </button>
+        <button
+          onClick={guestLogin}
+          className="w-full mt-[0.4rem] text-center place-items-center  place-content-center flex border bg-white text-blue py-2 rounded-md hover:bg-black hover:text-white transition"
+        >
+        Guest Login
         </button>
       </div>
 </div>
